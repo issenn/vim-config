@@ -1,0 +1,24 @@
+scriptencoding utf-8
+
+" Environment
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir, 'p', 0700)
+set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p', 0700)
+set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p', 0700)
+set viewdir=$XDG_CACHE_HOME/vim/view     | call mkdir(&viewdir, 'p', 0700)
+
+" https://chenweiguang.wordpress.com/2011/10/29/23/
+" remember lotsa fun stuff
+set viminfo+='1000,f1,/50,s100,:50,<1000,n$XDG_CACHE_HOME/vim/viminfo
+
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CACHE_HOME/vim,$XDG_DATA_HOME/vim,$VIM,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+source $XDG_CONFIG_HOME/vim/basic.vim
+source $XDG_CONFIG_HOME/vim/filetypes.vim
+source $XDG_CONFIG_HOME/vim/plugins_config.vim
+source $XDG_CONFIG_HOME/vim/extended.vim
+
+try
+  source $XDG_CONFIG_HOME/vim/issenn.vim
+catch
+endtry
